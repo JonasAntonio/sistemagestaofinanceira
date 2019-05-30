@@ -70,6 +70,13 @@
                     <span>Categorias</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="{{ url('/cartoes_credito') }}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Cartões de crédito</span>
+                </a>
+            </li>
       
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
