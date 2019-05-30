@@ -48,7 +48,7 @@ class DespesaController extends Controller
         $request->validate([
             'user_id' => 'required|integer',
             'nome' => 'required|string|max:255',
-            'valor' => 'required|regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/',
+            'valor' => 'required|numeric|between:0,99999999.99',
             'data_vencimento' => 'required|date',
             'descricao' => 'required|string|max:255',
             'categoria_id' => 'required|integer',
@@ -112,7 +112,7 @@ class DespesaController extends Controller
         $request->validate([
             'user_id' => 'required|integer',
             'nome' => 'required|string|max:255',
-            'valor' => 'required|regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/',
+            'valor' => 'required|numeric|between:0,99999999.99',
             'data_vencimento' => 'required|date',
             'descricao' => 'required|string|max:255',
             'categoria_id' => 'required|integer',
