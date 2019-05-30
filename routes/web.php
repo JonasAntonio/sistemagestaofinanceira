@@ -19,8 +19,10 @@ Auth::routes();
 
 Route::resource('home', 'HomeController');
 
-Route::resource('categorias', 'CategoriasController');
+Route::resource('categorias', 'CategoriaController');
 
 Route::resource('receitas', 'ReceitaController');
 
 Route::resource('despesas', 'DespesaController');
+
+Route::resource('cartoes_credito', 'CartaoCreditoController');
