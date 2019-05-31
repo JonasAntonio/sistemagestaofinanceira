@@ -14,15 +14,15 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
-      
+
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-      
+
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('js/receita-despesa.js') }}"></script>
-    
+
 
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -38,10 +38,10 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-      
+
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-    
+
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/home') }}">
                 <div class="sidebar-brand-icon rotate-n-15">
@@ -49,9 +49,9 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">IMPEKABLE</div>
             </a>
-      
+
             <hr class="sidebar-divider my-0">
-      
+
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url('/home') }}">
@@ -59,10 +59,10 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-      
+
             <!-- Divider -->
             <hr class="sidebar-divider">
-      
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link " href="{{ url('/categorias') }}">
@@ -70,7 +70,7 @@
                     <span>Categorias</span>
                 </a>
             </li>
-      
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
@@ -85,33 +85,33 @@
                     </div>
                 </div>
             </li>
-      
+
         </ul>
         <!-- End of Sidebar -->
-      
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-      
+
             <!-- Main Content -->
             <div id="content">
-      
+
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-        
+
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                     </button>
-        
-        
+
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-        
-        
+
+
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"> 
+                        aria-haspopup="true" aria-expanded="false">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                         <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
@@ -136,9 +136,9 @@
                         </a>
                         </div>
                     </li>
-        
+
                     </ul>
-        
+
                 </nav>
                 <!-- End of Topbar -->
 
@@ -147,10 +147,10 @@
                     @yield('content')
                 </div>
                 <!-- /.container-fluid -->
-        
+
             </div>
             <!-- End of Main Content -->
-        
+
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -160,18 +160,18 @@
                 </div>
             </footer>
             <!-- End of Footer -->
-    
+
         </div>
         <!-- End of Content Wrapper -->
-        
+
     </div>
-    <!-- End of Page Wrapper -->        
-      
+    <!-- End of Page Wrapper -->
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-      
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -198,5 +198,5 @@
         </div>
     </div>
 
-</body>      
+</body>
 </html>
