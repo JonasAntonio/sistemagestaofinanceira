@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cartao_Credito;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Types\Array_;
 
 class CartaoCreditoController extends Controller
 {
@@ -16,9 +17,17 @@ class CartaoCreditoController extends Controller
 
     public function index()
     {
+        $bandeiras = Array(1 => 'Visa', 
+                           2 => 'Mastercard',
+                           3 => 'American Express',
+                           4 => 'Elo',
+                           5 => 'Discover Network',
+                           6 => 'Hipercard',
+                           7 => 'Diners Club',
+                           8 => 'Sorocred',);
         //Busca a categoria cadastrada pelo Usuário especifico
         $cartoes = Cartao_Credito::where('user_id', Auth::user()->id)->get();
-        return view('dashboard/cartoes_credito', compact('cartoes'));
+        return view('dashboard/cartoes_credito', compact('cartoes','bandeiras'));
     }
 
     public function create()

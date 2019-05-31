@@ -40,7 +40,7 @@
                             </h6>
                         </div>
                         <div class="col-md-2 d-flex justify-content-end">
-                            <a href="{{ route('cartoes_credito.edit',$cartao->id)}}">
+                            <a href="{{ route('cartoes_credito.edit',$cartao->id) }}">
                                 <i class="text-warning fas fa-pen"></i>
                             </a>
                         </div>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            Limite: <span class="font-weight-bold">{{ $cartao->limite }}</span>
+                            Limite: <span class="font-weight-bold">R$ {{ $cartao->limite }}</span>
                         </div>
                     </div>
                 </div>
@@ -129,14 +129,18 @@
                             <div class="form-group col-md-6">
                                 <label for="">Bandeira</label>
                                 <select name="bandeira" id="" class="form-control shadow-sm">
-                                    <option value="0">
-                                        Mastercard
-                                    </option>
+                                    <option value="" selected disabled hidden >Selecione a Bandeira do Cartão</option>
+                                    @foreach ($bandeiras as $key=>$value)
+                                        <option value="{{ $key }}" @if(isset($cartaoedit) && $cartaoedit->bandeira==$key) selected @endif >
+                                            {{ $value }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">Vincular à conta</label>
                                 <select name="" id="" class="form-control shadow-sm">
+                                    <option value="" selected disabled hidden >Selecione a Conta Vinculada</option>
                                     <option value="0">
                                         CEF
                                     </option>
@@ -147,23 +151,23 @@
                             <div class="form-group col-md-6">
                                 <label for="">Dia de fechamento</label>
                                 <select name="diaFechamento" id="" class="form-control shadow-sm">
-                                    <option value="1">
-                                        1
-                                    </option>
-                                    <option value="1">
-                                        2
-                                    </option>
+                                    <option value="" selected disabled hidden >Selecione o Dia de Fechamento</option>
+                                    @for ($i = 1; $i <= 31; $i++)
+                                        <option value="{{ $i }}" @if(isset($cartaoedit) && $cartaoedit->diaFechamento==$i) selected @endif>
+                                            {{ $i }}
+                                        </option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">Dia de pagamento</label>
                                 <select name="diaPagamento" id="" class="form-control shadow-sm">
-                                    <option value="1">
-                                        1
-                                    </option>
-                                    <option value="1">
-                                        2
-                                    </option>
+                                    <option value="" selected disabled hidden >Selecione o Dia de Pagamento</option>
+                                    @for ($i = 1; $i <= 31; $i++)
+                                        <option value="{{ $i }}" @if(isset($cartaoedit) && $cartaoedit->diaPagamento==$i) selected @endif>
+                                            {{ $i }}
+                                        </option>
+                                    @endfor
                                 </select>
                             </div>
                         </div>
