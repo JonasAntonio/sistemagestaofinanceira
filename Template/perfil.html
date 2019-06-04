@@ -131,7 +131,7 @@
                                                                 <div class="form-group">
                                                                     <label for="nome">Nome</label><input
                                                                         class="form-control" type="text" name="inp_name"
-                                                                        placeholder="Nome">
+                                                                        placeholder="Nome" disabled>
                                                                 </div>
                                                             </div>
 
@@ -140,7 +140,7 @@
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label><input
                                                                         class="form-control" type="text"
-                                                                        name="inp_email" placeholder="Email">
+                                                                        name="inp_email" placeholder="Email" disabled>
                                                                 </div>
 
                                                             </div>
@@ -150,7 +150,7 @@
                                                                 <div class="form-group">
                                                                     <label for="cpf">CPF</label><input
                                                                         class="form-control" type="text" nome="inp_cpf"
-                                                                        placeholder="CPF">
+                                                                        placeholder="CPF" disabled>
                                                                 </div>
                                                             </div>
 
@@ -159,7 +159,7 @@
                                                                 <div class="form-group">
                                                                     <label for="rg">RG</label><input
                                                                         class="form-control" type="text" nome="inp_rg"
-                                                                        placeholder="RG">
+                                                                        placeholder="RG" disabled>
                                                                 </div>
                                                             </div>
 
@@ -167,7 +167,7 @@
                                                                 <div class="form-group">
                                                                     <label for="endereco">Endereço</label><input
                                                                         class="form-control" type="text"
-                                                                        name="inp_endereco" placeholder="Endereço">
+                                                                        name="inp_endereco" placeholder="Endereço" disabled>
                                                                 </div>
                                                             </div>
 
@@ -176,7 +176,7 @@
                                                                 <div class="form-group">
                                                                     <label for="numero-casa">Data de nascimento
                                                                     </label><input class="form-control" type="date"
-                                                                        name="inp_dataNas">
+                                                                        name="inp_dataNas" disabled>
                                                                 </div>
                                                             </div>
 
@@ -184,7 +184,7 @@
                                                                 <div class="form-group">
                                                                     <label for="bairro">Bairro</label><input
                                                                         class="form-control" type="text"
-                                                                        name="inp_bairro" placeholder="bairro">
+                                                                        name="inp_bairro" placeholder="bairro" disabled>
                                                                 </div>
                                                             </div>
 
@@ -192,7 +192,7 @@
                                                                 <div class="form-group">
                                                                     <label for="cidade">Cidade</label><input
                                                                         class="form-control" type="text"
-                                                                        placeholder="Cidade">
+                                                                        placeholder="Cidade" disabled>
                                                                 </div>
                                                             </div>
 
@@ -201,7 +201,7 @@
                                                                 <div class="form-group">
                                                                     <label for="numero">Numero</label><input
                                                                         class="form-control" type="text"
-                                                                        placeholder="N° casa">
+                                                                        placeholder="N° casa" disabled>
                                                                 </div>
                                                             </div>
 
@@ -212,12 +212,17 @@
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" id="btn-editar">
+                                                        <i class="fas fa-user-edit"></i>
+                                                        Editar perfil
+                                                    </button>
+
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">
                                                         <i class="fas fa-trash-alt"></i>
                                                         Cancelar as alterações
                                                     </button>
 
-                                                    <button type="button" class="btn btn-primary">
+                                                    <button type="button" class="btn btn-success">
                                                         <i class="fas fa-save"></i>
                                                         Salvar as alterações
                                                     </button>
@@ -236,28 +241,14 @@
 
 
     </div>
-    <!-- /.container-fluid -->
-
-    </div>
 
 
-    <!-- Footer -->
-
-    <!-- <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Sistema de Gestão Financeira IMPEKABLE 2019</span>
-          </div>
-        </div>
-      </footer> -->
 
 
-    <!-- End of Footer -->
-
-    <!--
-    <script src="js/jquery.js"></script>
+    <!-- <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script> -->
     <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="../Template/Dashboard/js/perfil.js"></script>
     <script src="../node_modules/popper.js/dist/popper.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
