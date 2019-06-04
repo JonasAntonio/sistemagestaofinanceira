@@ -6,6 +6,7 @@ use App\Despesa;
 use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Cartao_Credito;
 
 class DespesaController extends Controller
 {
@@ -21,7 +22,10 @@ class DespesaController extends Controller
         $categorias = Categoria::where('user_id', Auth::user()->id)->where('receita', 1)->orWhere('receita', 2)->get();
         //Busca despesas de um usuario especifico
         $despesas = Despesa::where('user_id', Auth::user()->id)->get();
-        return view('dashboard/despesas', compact('categorias','despesas'));
+        //Busca cartões de um usuario especifico
+        $cartoes = Cartao_Credito::where('user_id', Auth::user()->id)->get();
+        //Retorna para a view com os objetos nescessários
+        return view('dashboard/despesas', compact('categorias','despesas','cartoes'));
     }
 
     public function create()
@@ -48,7 +52,7 @@ class DespesaController extends Controller
         $request->validate([
             'user_id' => 'required|integer',
             'nome' => 'required|string|max:255',
-            'valor' => 'required|regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/',
+            'valor' => 'required|numeric|between:0,99999999.99',
             'data_vencimento' => 'required|date',
             'descricao' => 'required|string|max:255',
             'categoria_id' => 'required|integer',
@@ -112,7 +116,7 @@ class DespesaController extends Controller
         $request->validate([
             'user_id' => 'required|integer',
             'nome' => 'required|string|max:255',
-            'valor' => 'required|regex:/^[0-9]{1,3}(,[0-9]{3})*\.[0-9]+$/',
+            'valor' => 'required|numeric|between:0,99999999.99',
             'data_vencimento' => 'required|date',
             'descricao' => 'required|string|max:255',
             'categoria_id' => 'required|integer',

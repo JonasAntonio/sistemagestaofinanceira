@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Categoria;
 use Illuminate\Support\Facades\Auth;
 
-class CategoriasController extends Controller
+class CategoriaController extends Controller
 {
 
     public function __construct()

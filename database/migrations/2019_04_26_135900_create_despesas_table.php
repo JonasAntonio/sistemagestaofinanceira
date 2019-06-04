@@ -22,6 +22,8 @@ class CreateDespesasTable extends Migration
             $table->string('descricao');
             $table->bigInteger('categoria_id')->unsigned()->nullable();
             $table->string('forma_pagamento');
+            //Quando Escolher Cartão de crédito pega o ID do Cartão e poe aqui
+            //$table->bigInteger('cartao_id')->unsigned()->nullable();
             $table->boolean('pago');
             $table->boolean('parcelado');
             $table->integer('dia_cobranca_parcela');
@@ -32,6 +34,8 @@ class CreateDespesasTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('categoria_id')->references('id')->on('categorias');
+            //Quando Escolher Cartão de crédito pega o ID do Cartão e poe aqui
+            //$table->foreign('cartao_id')->references('id')->on('cartao_creditos');
         });
     }
 

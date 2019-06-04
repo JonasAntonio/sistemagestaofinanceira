@@ -24,6 +24,13 @@ $(document).ready(function() {
     }
 });
 
+//Se passado via url mostra modal-categoria
+$(document).ready(function() {
+    if(window.location.href.indexOf('#modal-cartao') != -1) {
+      $('#modal-cartao').modal('show');
+    }
+});
+
 // Função script para que alertas sejam retirados das telas
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function () {
