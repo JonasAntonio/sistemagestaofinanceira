@@ -124,7 +124,7 @@
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#perfilModal">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Perfil
                         </a>
@@ -204,6 +204,104 @@
             </div>
         </div>
     </div>
+
+     <!-- Perfil Modal -->
+     <div class="modal fade" id="perfilModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="modal-perfil">Perfil</h5>
+                 <button type="button" class="close" data-dismiss="modal"
+                     aria-label="Fechar">
+                     <span aria-hidden="true"><i
+                             class="fas fa-times-circle"></i></span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                 <form method="post">
+                     <div class="row">
+                         <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="nome">Nome</label><input
+                                     class="form-control" type="text" name="inp_name"
+                                     placeholder="Nome" value="{{ Auth::user()->name }}" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="email">Email</label><input
+                                     class="form-control" type="text"
+                                     name="inp_email" placeholder="Email" value="{{ Auth::user()->email }}" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="cpf">CPF</label><input
+                                     class="form-control" type="text" nome="inp_cpf"
+                                     placeholder="CPF" value="{{ Auth::user()->cpf }}" disabled>  
+                             </div>
+                         </div>
+                         <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="rg">RG</label><input
+                                     class="form-control" type="text" nome="inp_rg"
+                                     placeholder="RG" value="{{ Auth::user()->rg }}" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-9">
+                             <div class="form-group">
+                                 <label for="endereco">Endereço</label><input
+                                     class="form-control" type="text"
+                                     name="inp_endereco" placeholder="Endereço" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-3">
+                             <div class="form-group">
+                                 <label for="numero-casa">Data de nascimento
+                                 </label><input class="form-control" type="date"
+                                     name="inp_dataNas"  value="{{ Auth::user()->dataNascimento }}" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-6">
+                             <div class="form-group">
+                                 <label for="bairro">Bairro</label><input
+                                     class="form-control" type="text" 
+                                     name="inp_bairro" placeholder="Bairro" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-4">
+                             <div class="form-group">
+                                 <label for="cidade">Cidade</label><input
+                                     class="form-control" type="text" value="{{ Auth::user()->cidade }}"
+                                     placeholder="Cidade" disabled>
+                             </div>
+                         </div>
+                         <div class="col-md-2">
+                             <div class="form-group">
+                                 <label for="numero">Numero</label><input
+                                     class="form-control" type="text" value="{{ Auth::user()->numero }}"
+                                     placeholder="N° casa" disabled>
+                             </div>
+                         </div>
+                     </div>
+                 </form>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-primary" id="btn-editar">
+                     <i class="fas fa-user-edit"></i>
+                     Editar perfil
+                 </button>
+                 <button type="button" class="btn btn-danger" data-dismiss="modal">
+                     <i class="fas fa-trash-alt"></i>
+                     Cancelar as alterações
+                 </button>
+                 <button type="button" class="btn btn-success">
+                     <i class="fas fa-save"></i>
+                     Salvar as alterações
+                 </button>
+             </div>
+         </div>
+     </div>
 
 </body>
 </html>
