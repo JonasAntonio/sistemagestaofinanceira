@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cartao_Credito extends Model
+class Meta_Orcamentaria extends Model
 {
     protected $fillable = [
         'user_id', 
         'nome',
-        'limite',
-        'bandeira',
-        'diaPagamento',
-        'diaFechamento',
+        'valor',
+        'saldo',
+        'dataFinal',
+        'situacao'
     ];
 
     protected $guarded = ['id', 'created_at', 'update_at'];
 
-    protected $table = 'cartao_creditos';
+    protected $table = 'meta_orcamentarias';
 }

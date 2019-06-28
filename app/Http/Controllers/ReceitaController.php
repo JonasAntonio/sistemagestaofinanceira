@@ -65,7 +65,8 @@ class ReceitaController extends Controller
         ]);
         $receita->save();
 
-        return redirect('/receitas')->with('success-receita', 'Receita(Entrada) Cadastrada com Sucesso');
+        notify()->success('Receita ' . $receita->nome .' Cadastrada com Sucesso' , Auth::user()->name);
+        return redirect('/receitas');
     }
 
     public function show($id)
@@ -115,14 +116,16 @@ class ReceitaController extends Controller
         $receita->num_meses = $request->get('num_meses');
         $receita->save();
 
-        return redirect('/receitas')->with('success-receita', 'Receita(Entrada) Alterada com Sucesso');
+        notify()->success('Receita ' . $receita->nome .' Alterada com Sucesso' , Auth::user()->name);
+        return redirect('/receitas');
     }
 
     public function destroy($id)
     {
         $receita = Receita::find($id);
+        notify()->success('Receita ' . $receita->nome .' Removida com Sucesso' , Auth::user()->name);
         $receita->delete();
-
-        return redirect('/receitas')->with('sucess-receita', 'Receita(Entrada) Removida com Sucesso');
+        
+        return redirect('/receitas');
     }
 }

@@ -82,7 +82,8 @@ class DespesaController extends Controller
         ]);
         $despesa->save();
 
-        return redirect('/despesas')->with('success-despesa', 'Despesa(Saída) Cadastrada com Sucesso');
+        notify()->success('Despesa ' . $despesa->nome .' Cadastrada com Sucesso' , Auth::user()->name);
+        return redirect('/despesas');
     }
 
     public function show($id)
@@ -145,14 +146,15 @@ class DespesaController extends Controller
         $despesa->num_meses = $request->get('num_meses');
         $despesa->save();
 
-        return redirect('/despesas')->with('success-despesa', 'Despesa(Saída) Alterada com Sucesso');
+        notify()->success('Despesa ' . $despesa->nome .' Alterada com Sucesso' , Auth::user()->name);
+        return redirect('/despesas');
     }
 
     public function destroy($id)
     {
         $despesa = Despesa::find($id);
+        notify()->success('Despesa ' . $despesa->nome .' Removida com Sucesso' , Auth::user()->name);
         $despesa->delete();
-
-        return redirect('/despesas')->with('sucess-despesa', 'Despesa(Saída) Removida com Sucesso');
+        return redirect('/despesas');
     }
 }

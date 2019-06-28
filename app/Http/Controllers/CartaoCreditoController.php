@@ -55,8 +55,10 @@ class CartaoCreditoController extends Controller
             'diaFechamento' =>$request['diaFechamento']
         ]);
         $cartao->save();
-
-        return redirect('/cartoes_credito')->with('success-cartao', 'Cartão Cadastrado com Sucesso');
+        
+        
+        notify()->success('Cartão ' . $cartao->nome .' Cadastrado com Sucesso' , Auth::user()->name);
+        return redirect('/cartoes_credito');
     }
 
     public function show($id)
@@ -90,15 +92,17 @@ class CartaoCreditoController extends Controller
         $cartao->diaPagamento = $request->get('diaPagamento');
         $cartao->diaFechamento = $request->get('diaFechamento');
         $cartao->save();
-    
-        return redirect('/cartoes_credito')->with('success-cartao', 'Cartão Alterado com Sucesso');
+        
+        notify()->success('Cartão ' . $cartao->nome .' Alterado com Sucesso' , Auth::user()->name);
+        return redirect('/cartoes_credito');
     }
 
     public function destroy($id)
     {
         $cartao = Cartao_Credito::find($id);
+        notify()->success('Cartão ' . $cartao->nome .' Removido com Sucesso' , Auth::user()->name);
+        
         $cartao->delete();
-
-        return redirect('/cartoes_credito')->with('success-cartao', 'Cartão Removido com Sucesso');
+        return redirect('/cartoes_credito');
     }
 }

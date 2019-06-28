@@ -9,6 +9,7 @@ use Khill\Lavacharts\Lavacharts;
 
 class HomeController extends Controller
 {
+    private $num = 0;
     /**
      * Create a new controller instance.
      *
@@ -34,7 +35,8 @@ class HomeController extends Controller
         //Chamando os gráficos
         self::receitaCategoriaChart($lava);
         self::despesaCategoriaChart($lava);
-
+        
+        notify()->info('Bem-Vindo ' . Auth::user()->name , 'IMPEAKABLE');
         return view('home', compact('totalReceitas','totalDespesas','lava'));
     }
 

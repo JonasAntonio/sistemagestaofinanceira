@@ -8,22 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('js/receita-despesa.js') }}"></script>
-
-
+    
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -31,6 +16,25 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css') }}" rel="stylesheet">
+    @notify_css
+    
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    @notify_js
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+    <!-- Custom scripts for all pages-->
+
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+    <script src="{{ asset('js/receita-despesa.js') }}"></script>
+    <script src="{{ asset('js/funcionalidades.js') }}"></script>
 
 </head>
 
@@ -75,6 +79,13 @@
                 <a class="nav-link " href="{{ url('/cartoes_credito') }}">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Cartões de crédito</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="{{ url('/metas_orcamentarias') }}">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Metas</span>
                 </a>
             </li>
 
@@ -251,7 +262,7 @@
                          <div class="col-md-9">
                              <div class="form-group">
                                  <label for="endereco">Endereço</label><input
-                                     class="form-control" type="text"
+                                     class="form-control" type="text" value="{{ Auth::user()->endereco }}"
                                      name="inp_endereco" placeholder="Endereço" disabled>
                              </div>
                          </div>
@@ -265,7 +276,7 @@
                          <div class="col-md-6">
                              <div class="form-group">
                                  <label for="bairro">Bairro</label><input
-                                     class="form-control" type="text" 
+                                     class="form-control" type="text" value="{{ Auth::user()->bairro }}"
                                      name="inp_bairro" placeholder="Bairro" disabled>
                              </div>
                          </div>
@@ -303,5 +314,8 @@
          </div>
      </div>
 
-</body>
+</body> 
+
+@notify_render
+
 </html>

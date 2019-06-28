@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class CategoriaController extends Controller
 {
 
+    private function tipo() {
+        return [
+            '0' => 'Receita',
+            '1' => 'Despesa',
+            '2' => 'Ambos'
+        ];
+    }
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -45,11 +53,8 @@ class CategoriaController extends Controller
         ]);
         $categoria->save();
 
-        if($categoria->receita) {
-            return redirect('/categorias')->with('success-receita', 'Categoria Cadastrada com Sucesso');
-        } else {
-            return redirect('/categorias')->with('success-despesa', 'Categoria Cadastrada com Sucesso');
-        } 
+        notify()->success('Categoria ('. $this->tipo()[$categoria->receita].') ' . $categoria->nome .' Cadastrada com Sucesso' , Auth::user()->name);
+        return redirect('/categorias');
     }
 
     public function show($id)
@@ -82,22 +87,17 @@ class CategoriaController extends Controller
         $categoria->cor = $request->get('cor');
         $categoria->save();
     
-        if($categoria->receita) {
-            return redirect('/categorias')->with('success-receita', 'Categoria Alterada com Sucesso');
-        } else {
-            return redirect('/categorias')->with('success-despesa', 'Categoria Alterada com Sucesso');
-        }   
+        notify()->success('Categoria ('. $this->tipo()[$categoria->receita].') ' . $categoria->nome .' Alterada com Sucesso' , Auth::user()->name);
+        return redirect('/categorias');
+   
     }
 
     public function destroy($id)
     {
         $categoria = Categoria::find($id);
+        notify()->success('Categoria ('. $this->tipo()[$categoria->receita].') ' . $categoria->nome .' Removida com Sucesso' , Auth::user()->name);
         $categoria->delete();
-
-        if($categoria->receita) {
-            return redirect('/categorias')->with('success-receita', 'Categoria Removida com Sucesso');
-        } else {
-            return redirect('/categorias')->with('success-despesa', 'Categoria Removida com Sucesso');
-        }
+    
+        return redirect('/categorias');
     }
 }

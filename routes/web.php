@@ -1,4 +1,6 @@
 <?php
+//use Symfony\Component\Routing\Annotation\Route;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,5 @@ Route::resource('receitas', 'ReceitaController');
 Route::resource('despesas', 'DespesaController');
 
 Route::resource('cartoes_credito', 'CartaoCreditoController');
+
+Route::resource('metas_orcamentarias', 'MetaOrcamentariaController');

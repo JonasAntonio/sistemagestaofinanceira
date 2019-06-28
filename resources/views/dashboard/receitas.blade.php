@@ -32,12 +32,7 @@
                         </ul>
                     </div>
                 @endif
-                <!-- Se existirem sucessos a serem mostrados exibe aqui -->
-                @if(session()->get('success-receita'))
-                    <div class="alert alert-success" id="divalert">
-                        {{ session()->get('success-receita') }}  
-                    </div>
-                @endif
+               
                 <table class="table table-hover">
                     <thead>
                         <tr>

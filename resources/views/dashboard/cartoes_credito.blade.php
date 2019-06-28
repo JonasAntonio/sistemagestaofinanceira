@@ -20,12 +20,6 @@
         </div>
     @endif
 
-    @if(session()->get('success-cartao'))
-        <div class="alert alert-success" id="divalert">
-            {{ session()->get('success-cartao') }}  
-        </div>
-    @endif
-
     @foreach($cartoes->chunk(3) as $chunked_cartoes)
     <div class="row">
         @foreach($chunked_cartoes as $cartao)
@@ -39,16 +33,15 @@
                                 {{ $cartao->nome }}
                             </h6>
                         </div>
-                        <div class="col-md-2 d-flex justify-content-end">
-                            <a href="{{ route('cartoes_credito.edit',$cartao->id) }}">
-                                <i class="text-warning fas fa-pen"></i>
-                            </a>
-                        </div>
-                        <div class="col-md-2 d-flex justify-content-end">
+                        <div class="col-md-4 d-flex justify-content-end">
                             <form action="{{ route('cartoes_credito.destroy',$cartao->id) }}" method="post">
+                                <a href="{{ route('cartoes_credito.edit',$cartao->id) }}"
+                                    title="Editar Cartão">
+                                    <i class="text-warning fas fa-pen"></i>
+                                </a>
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-link" type="submit">
+                                <button class="btn btn-link" type="submit" title="Remover Cartão">
                                     <i class="text-danger fas fa-trash-alt"></i>
                                 </button>
                             </form>
@@ -57,9 +50,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="progress mt-3 mb-2">
-                                <div class="progress-bar bg-success" role="progressbar"
-                                    style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100">25%</div>
+                                <div class="progress-bar bg-success" role="progressbar" 
+                                    style="width: {{ number_format(800 / $cartao->limite * 100, 2) }}%;"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    {{ number_format(800 / $cartao->limite * 100, 2) }}%</div>
                             </div>
                         </div>
                     </div>
