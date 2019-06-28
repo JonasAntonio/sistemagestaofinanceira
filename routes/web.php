@@ -30,3 +30,5 @@ Route::resource('despesas', 'DespesaController');
 Route::resource('cartoes_credito', 'CartaoCreditoController');
 
 Route::resource('metas_orcamentarias', 'MetaOrcamentariaController');
+
+Route::resource('user', 'UserController');

@@ -227,13 +227,13 @@
                         <i class="fas fa-user-edit"></i>
                     </span>
                 </button>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <button id="cancelar" type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">
                         <i class="fas fa-times-circle"></i>
                     </span>
                 </button>
             </div>
-            <form action="{{ route('home.store') }}" method="POST">
+            <form action="{{ route('user.store') }}" method="POST">
                 <div class="modal-body">
                      @csrf
                      <div class="row">

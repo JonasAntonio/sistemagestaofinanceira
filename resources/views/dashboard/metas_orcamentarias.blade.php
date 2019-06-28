@@ -42,7 +42,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 d-flex justify-content-end">
-                            <h4>20,00%</h4>
+                            <h4>{{ number_format($meta->saldo / $meta->valor * 100, 2) }}%</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-12">
                                 @csrf
                                 <label for="">Nome</label>
                                 <input type="text" class="form-control shadow-sm" name="nome"
