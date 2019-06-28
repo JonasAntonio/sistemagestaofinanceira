@@ -220,21 +220,27 @@
      <div class="modal fade" id="perfilModal" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
          <div class="modal-content">
-             <div class="modal-header">
-                 <h5 class="modal-title" id="modal-perfil">Perfil</h5>
-                 <button type="button" class="close" data-dismiss="modal"
-                     aria-label="Fechar">
-                     <span aria-hidden="true"><i
-                             class="fas fa-times-circle"></i></span>
-                 </button>
-             </div>
-             <div class="modal-body">
-                 <form method="post">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-perfil">Perfil</h5>
+                <button class="close" id="btn-editar">
+                    <span aria-hidden="true">
+                        <i class="fas fa-user-edit"></i>
+                    </span>
+                </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">
+                        <i class="fas fa-times-circle"></i>
+                    </span>
+                </button>
+            </div>
+            <form action="{{ route('home.store') }}" method="POST">
+                <div class="modal-body">
+                     @csrf
                      <div class="row">
                          <div class="col-md-6">
                              <div class="form-group">
                                  <label for="nome">Nome</label><input
-                                     class="form-control" type="text" name="inp_name"
+                                     class="form-control" type="text" name="name"
                                      placeholder="Nome" value="{{ Auth::user()->name }}" disabled>
                              </div>
                          </div>
@@ -242,20 +248,20 @@
                              <div class="form-group">
                                  <label for="email">Email</label><input
                                      class="form-control" type="text"
-                                     name="inp_email" placeholder="Email" value="{{ Auth::user()->email }}" disabled>
+                                     name="email" placeholder="Email" value="{{ Auth::user()->email }}" disabled>
                              </div>
                          </div>
                          <div class="col-md-6">
                              <div class="form-group">
                                  <label for="cpf">CPF</label><input
-                                     class="form-control" type="text" nome="inp_cpf"
+                                     class="form-control" type="text" name="cpf"
                                      placeholder="CPF" value="{{ Auth::user()->cpf }}" disabled>  
                              </div>
                          </div>
                          <div class="col-md-6">
                              <div class="form-group">
                                  <label for="rg">RG</label><input
-                                     class="form-control" type="text" nome="inp_rg"
+                                     class="form-control" type="text" name="rg"
                                      placeholder="RG" value="{{ Auth::user()->rg }}" disabled>
                              </div>
                          </div>
@@ -263,54 +269,46 @@
                              <div class="form-group">
                                  <label for="endereco">Endereço</label><input
                                      class="form-control" type="text" value="{{ Auth::user()->endereco }}"
-                                     name="inp_endereco" placeholder="Endereço" disabled>
+                                     name="endereco" placeholder="Endereço" disabled>
                              </div>
                          </div>
                          <div class="col-md-3">
                              <div class="form-group">
                                  <label for="numero-casa">Data de nascimento
                                  </label><input class="form-control" type="date"
-                                     name="inp_dataNas"  value="{{ Auth::user()->dataNascimento }}" disabled>
+                                     name="dataNascimento"  value="{{ Auth::user()->dataNascimento }}" disabled>
                              </div>
                          </div>
                          <div class="col-md-6">
                              <div class="form-group">
                                  <label for="bairro">Bairro</label><input
                                      class="form-control" type="text" value="{{ Auth::user()->bairro }}"
-                                     name="inp_bairro" placeholder="Bairro" disabled>
+                                     name="bairro" placeholder="Bairro" disabled>
                              </div>
                          </div>
                          <div class="col-md-4">
                              <div class="form-group">
                                  <label for="cidade">Cidade</label><input
                                      class="form-control" type="text" value="{{ Auth::user()->cidade }}"
-                                     placeholder="Cidade" disabled>
+                                     placeholder="Cidade" name="cidade" disabled>
                              </div>
                          </div>
                          <div class="col-md-2">
                              <div class="form-group">
                                  <label for="numero">Numero</label><input
                                      class="form-control" type="text" value="{{ Auth::user()->numero }}"
-                                     placeholder="N° casa" disabled>
+                                     placeholder="numero" name="numero" disabled>
                              </div>
                          </div>
                      </div>
-                 </form>
-             </div>
-             <div class="modal-footer">
-                 <button type="button" class="btn btn-primary" id="btn-editar">
-                     <i class="fas fa-user-edit"></i>
-                     Editar perfil
-                 </button>
-                 <button type="button" class="btn btn-danger" data-dismiss="modal">
-                     <i class="fas fa-trash-alt"></i>
-                     Cancelar as alterações
-                 </button>
-                 <button type="button" class="btn btn-success">
-                     <i class="fas fa-save"></i>
-                     Salvar as alterações
-                 </button>
-             </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="salvar" type="submit" class="btn btn-success" disabled>
+                        <i class="fas fa-save"></i>
+                        Salvar as alterações
+                    </button>
+                </div>
+            </form>
          </div>
      </div>
 

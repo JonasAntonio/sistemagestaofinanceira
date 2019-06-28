@@ -2,7 +2,18 @@
 $(document).ready(function(){
     $("#btn-editar").click(function () {
         $("input").prop("disabled", false);
+        $("#salvar").prop("disabled", false);
+        $("#btn-editar").prop("disabled", true);
     });
+});
+
+$(document).ready(function(){
+  $("#cancelar").click(function () {
+      $("input").prop("disabled", true);
+      $("#salvar").prop("disabled", true);
+      $("#btn-editar").prop("disabled", false);
+      $("#perfilModal").modal('hide');
+  });
 });
 
 $(document).ready(function(){

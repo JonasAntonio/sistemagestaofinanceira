@@ -14,6 +14,7 @@
         "khill/lavacharts": "3.0.*",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "micc83/acf-fonticonpicker": "dev-master",
         "yoeunes/notify": "^1.0"
     },
     "require-dev": {

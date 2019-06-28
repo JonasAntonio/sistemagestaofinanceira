@@ -116,7 +116,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-8">
                                 @csrf
                                 <label for="">Nome</label>
                                 <input type="text" class="form-control shadow-sm" name="nome"
